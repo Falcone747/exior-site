@@ -1,0 +1,312 @@
+/* EXIOR — fond graphite, cartes blanches conservées. Ne change ni mise en page ni contenus. */
+
+:root {
+  --exior-bg: #141518;
+  --exior-bg-alt: #1c1d21;
+  --exior-ink: #ececee;
+  --exior-muted: #b8babf;
+  --exior-card: #fff;
+  --exior-card-ink: #111;
+  --exior-card-muted: #46484d;
+}
+
+/* ---------- Fonds de page / sections ---------- */
+html,
+body,
+body.body,
+.page-wrapper,
+.section-wrapper,
+.page-line-block,
+._404-section,
+._404-navbar,
+.features,
+.styleguide {
+  background-color: var(--exior-bg) !important;
+  color: var(--exior-ink);
+}
+
+/* Sections alternées, un peu plus claires */
+.brand-main,
+.features-v1,
+.feature-v2,
+.feature-v4,
+.feature-v5,
+.pricing,
+.pricing.main,
+.faq-section,
+.faq-main,
+.blog,
+.about,
+.about-v2,
+.our-core-value,
+.team-section,
+.license-section,
+.contact,
+.changelog-section,
+.integration,
+.privacy-section,
+.heading-style,
+.paragraph-style,
+.button-style,
+.color-style,
+.sections,
+.case-study,
+.case-study.style-01 {
+  background-color: var(--exior-bg-alt);
+}
+
+/* ---------- Texte posé directement sur le fond sombre ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+.paragraph,
+.text,
+.text-18-medium,
+.text-16-semibold,
+.text-18-semibold,
+.text-14-semibold,
+.changelog-date,
+.verson-text-main,
+.changelog-title,
+.faq-title,
+.blog-title-main,
+.team-name,
+.privacy-title-main,
+.integration-heading,
+.navtext,
+.navitem-default-title,
+.pricing-card-feature-text,
+.pricing-price-heading-02,
+.features-hero-title,
+.top-title,
+.core-value-title,
+.features-icon-list-text,
+.blog-title-primary,
+.blog-author-name,
+.blog-description,
+.brand-title,
+.case-study-text,
+.case-name,
+.features-secondery-text,
+.link,
+.video-text,
+.text-span-2,
+.h4,
+._404-title,
+.hero-display-heading,
+.hero-display-heading-black,
+.hero-title,
+.color-style-text {
+  color: var(--exior-ink);
+}
+
+p,
+.hero-description,
+.blog-details-content,
+.faq-paragraph,
+.integration-excerpt,
+.integration-details-content,
+.hero-feature-subtitle,
+.subtitle,
+.case-tab-link {
+  color: var(--exior-muted);
+}
+
+/* Liens du pied de page (sur le fond sombre) */
+.navtext:hover,
+.navtext.w--current,
+.link:hover {
+  color: var(--all-color--color-01, #ff5d30);
+}
+
+/* ---------- Surfaces blanches / claires : on les garde, texte sombre à l'intérieur ---------- */
+.nav-menu,
+.dropdown-menu-list.w--open,
+.changelog-card,
+.singel-form,
+.color-box._01,
+.features-content-left,
+.blog-card-main,
+.text-field,
+.w-input,
+.w-select,
+.contact-form-block,
+.integration-card,
+.integration-details-logo,
+.our-core-value-card,
+.pricing-card,
+.subtext,
+.pricing-bottom-text-wrappe,
+.hero-blog-card-content-wrap,
+.hero-subtitle,
+.feature-card-v1,
+.features-card-01,
+.features-card-02,
+.features-card-04,
+.features-card-05,
+.feature-card-01,
+.feature-card-02,
+.feature-card-03,
+.feature-image,
+.case-study-content-wrapper,
+.about-content-flex,
+.core-value-text-wrap,
+.lightbox-link,
+.hero-button-content-wrap:where(.w-variant-56642d5e-adb0-a8e1-b77d-7c25c2c6438e),
+.single-faq,
+.contact-form-wrap {
+  color: var(--exior-card-ink);
+}
+
+.nav-menu,
+.dropdown-menu-list.w--open,
+.changelog-card,
+.singel-form,
+.color-box._01,
+.features-content-left,
+.blog-card-main,
+.text-field,
+.w-input,
+.w-select,
+.contact-form-block,
+.integration-card,
+.integration-details-logo,
+.our-core-value-card,
+.pricing-card,
+.subtext,
+.pricing-bottom-text-wrappe,
+.hero-blog-card-content-wrap,
+.hero-subtitle,
+.feature-card-v1,
+.features-card-01,
+.features-card-02,
+.features-card-04,
+.features-card-05,
+.feature-card-01,
+.feature-card-02,
+.feature-card-03,
+.feature-image,
+.case-study-content-wrapper,
+.about-content-flex,
+.core-value-text-wrap,
+.lightbox-link,
+.hero-button-content-wrap:where(.w-variant-56642d5e-adb0-a8e1-b77d-7c25c2c6438e) {
+  background-color: var(--exior-card);
+}
+
+/* Texte sombre dans les cartes et le menu, hors boutons sombres et accents déjà colorés */
+:is(
+  .nav-menu,
+  .dropdown-menu-list,
+  .changelog-card,
+  .singel-form,
+  .color-box._01,
+  .features-content-left,
+  .blog-card-main,
+  .text-field,
+  .w-input,
+  .w-select,
+  .contact-form-block,
+  .integration-card,
+  .integration-details-logo,
+  .our-core-value-card,
+  .pricing-card,
+  .subtext,
+  .pricing-bottom-text-wrappe,
+  .hero-blog-card-content-wrap,
+  .hero-subtitle,
+  .feature-card-v1,
+  .features-card-01,
+  .features-card-02,
+  .features-card-04,
+  .features-card-05,
+  .feature-card-01,
+  .feature-card-02,
+  .feature-card-03,
+  .case-study-content-wrapper,
+  .about-content-flex,
+  .core-value-text-wrap,
+  .lightbox-link,
+  .single-faq,
+  .contact-form-wrap
+) :is(
+  h1, h2, h3, h4, h5, h6, a, li, label, td, th,
+  .paragraph, .text, .text-18-medium, .text-16-semibold, .text-18-semibold, .text-14-semibold,
+  .changelog-date, .verson-text-main, .changelog-title, .faq-title, .blog-title-main,
+  .team-name, .privacy-title-main, .integration-heading, .nav-link, .dropdown-toggle-main,
+  .pricing-card-feature-text, .pricing-price-heading-02, .features-hero-title, .top-title,
+  .core-value-title, .features-icon-list-text, .blog-title-primary, .blog-author-name,
+  .blog-description, .brand-title, .case-study-text, .case-name, .features-secondery-text,
+  .link, .video-text, .text-span-2, .h4, .hero-display-heading, .hero-title, .color-style-text,
+  .w-dropdown-toggle, .w-nav-link, .w-dropdown-link
+):not(.hero-button-text):not(.cta-heading):not(.text-span) {
+  color: var(--exior-card-ink);
+}
+
+:is(
+  .nav-menu,
+  .dropdown-menu-list,
+  .changelog-card,
+  .singel-form,
+  .features-content-left,
+  .blog-card-main,
+  .text-field,
+  .w-input,
+  .w-select,
+  .contact-form-block,
+  .integration-card,
+  .our-core-value-card,
+  .pricing-card,
+  .hero-blog-card-content-wrap,
+  .feature-card-v1,
+  .features-card-01,
+  .features-card-02,
+  .features-card-04,
+  .features-card-05,
+  .feature-card-01,
+  .feature-card-02,
+  .feature-card-03,
+  .case-study-content-wrapper,
+  .about-content-flex,
+  .core-value-text-wrap,
+  .single-faq,
+  .contact-form-wrap
+) :is(p, .hero-description, .blog-details-content, .faq-paragraph, .integration-excerpt,
+      .integration-details-content, .hero-feature-subtitle, .subtitle, .case-tab-link) {
+  color: var(--exior-card-muted);
+}
+
+/* Accents du menu (carte blanche) */
+.nav-menu .nav-link:hover,
+.nav-menu .nav-link.w--current,
+.nav-menu .dropdown-toggle-main:hover,
+.dropdown-menu-list .nav-link:hover,
+.dropdown-menu-list .nav-link.w--current {
+  color: var(--all-color--color-02, #1167f4);
+}
+
+/* Bouton clair : texte sombre conservé */
+.hero-button-content-wrap:where(.w-variant-56642d5e-adb0-a8e1-b77d-7c25c2c6438e) .hero-button-text {
+  color: var(--exior-card-ink);
+}
+
+/* Champs de formulaire : texte sombre sur fond blanc */
+.w-input,
+.w-select,
+.text-field {
+  color: var(--exior-card-ink);
+}
+
+/* Image de fond claire du hero : on l'assombrit pour le graphite, en conservant les halos de couleur */
+.hero,
+.hero.main {
+  background-color: var(--exior-bg);
+}
+
+img.hero-bg-shape {
+  filter: brightness(0.2) contrast(1.15) saturate(1.4);
+}
