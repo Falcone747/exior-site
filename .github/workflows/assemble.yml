@@ -1,0 +1,51 @@
+name: Assemble site files
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Merge upload branches and decode binary packs
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin --prune
+          failed=0
+          for b in $(git branch -r | sed 's/^[[:space:]]*//' | grep '^origin/upload-' | sort); do
+            echo "=== Merging $b ==="
+            if git merge --no-edit "$b"; then
+              echo "OK $b"
+            else
+              echo "FAILED $b"
+              git merge --abort || true
+              failed=1
+            fi
+          done
+          if [ "$failed" -ne 0 ]; then
+            echo "One or more branch merges failed"
+            exit 1
+          fi
+          if ls unpack-bin/*.tar.gz.b64 >/dev/null 2>&1; then
+            mkdir -p /tmp/bin-tars
+            for f in unpack-bin/*.tar.gz.b64; do
+              echo "Decoding $f"
+              base64 -d "$f" > "/tmp/bin-tars/$(basename "$f" .b64)"
+              tar -xzf "/tmp/bin-tars/$(basename "$f" .b64)" -C .
+              rm -f "$f"
+            done
+            rmdir unpack-bin 2>/dev/null || rm -rf unpack-bin
+          fi
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No binary decode changes to commit"
+          else
+            git commit -m "Add binary assets (images and fonts) and drop temporary packs"
+          fi
+          git push origin main
