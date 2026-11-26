@@ -124,7 +124,6 @@ p,
 }
 
 /* ---------- Surfaces blanches / claires : on les garde, texte sombre à l'intérieur ---------- */
-.nav-menu,
 .dropdown-menu-list.w--open,
 .changelog-card,
 .singel-form,
@@ -162,7 +161,6 @@ p,
   color: var(--exior-card-ink);
 }
 
-.nav-menu,
 .dropdown-menu-list.w--open,
 .changelog-card,
 .singel-form,
@@ -198,9 +196,8 @@ p,
   background-color: var(--exior-card);
 }
 
-/* Texte sombre dans les cartes et le menu, hors boutons sombres et accents déjà colorés */
+/* Texte sombre dans les cartes, hors boutons sombres et accents déjà colorés */
 :is(
-  .nav-menu,
   .dropdown-menu-list,
   .changelog-card,
   .singel-form,
@@ -248,7 +245,6 @@ p,
 }
 
 :is(
-  .nav-menu,
   .dropdown-menu-list,
   .changelog-card,
   .singel-form,
@@ -280,10 +276,7 @@ p,
   color: var(--exior-card-muted);
 }
 
-/* Accents du menu (carte blanche) */
-.nav-menu .nav-link:hover,
-.nav-menu .nav-link.w--current,
-.nav-menu .dropdown-toggle-main:hover,
+/* Accents du panneau déroulant (carte blanche) */
 .dropdown-menu-list .nav-link:hover,
 .dropdown-menu-list .nav-link.w--current {
   color: var(--all-color--color-02, #1167f4);
@@ -309,4 +302,61 @@ p,
 
 img.hero-bg-shape {
   filter: brightness(0.2) contrast(1.15) saturate(1.4);
+}
+
+/* ---------- Header : barre de nav transparente, liens clairs ---------- */
+.w-nav,
+.navbar-black,
+.nav-menu {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--exior-ink);
+}
+
+.nav-menu .nav-link,
+.nav-menu .dropdown-toggle-main,
+.nav-menu .dropdown-text,
+.nav-menu .w-nav-link,
+.nav-menu .w-dropdown-toggle,
+.nav-link,
+.dropdown-toggle-main {
+  color: var(--exior-ink);
+}
+
+.nav-menu .nav-link:hover,
+.nav-menu .nav-link.w--current,
+.nav-menu .dropdown-toggle-main:hover,
+.nav-link:hover,
+.nav-link.w--current,
+.dropdown-toggle-main:hover {
+  color: var(--all-color--color-02, #1167f4);
+}
+
+/* Menu mobile ouvert : panneau graphite pour rester lisible */
+.nav-menu[data-nav-menu-open],
+[data-nav-menu-open] {
+  background-color: var(--exior-bg-alt) !important;
+}
+
+/* Panneau déroulant : reste une carte blanche, texte sombre */
+.dropdown-menu-list,
+.dropdown-menu-list.w--open,
+.dropdown-menu-list .nav-link,
+.dropdown-menu-list .w-dropdown-link {
+  color: var(--exior-card-ink);
+}
+
+/* Logo : wordmark sombre → clair, sans toucher au fichier image */
+img.orginal-logo-black,
+img.project-logo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Badge « Made in Webflow » injecté par le JS */
+.w-webflow-badge,
+.w-webflow-badge img {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
